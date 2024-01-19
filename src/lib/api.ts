@@ -1,4 +1,3 @@
-import { Body, getClient } from "@tauri-apps/api/http";
 import { invoke } from "@tauri-apps/api/tauri";
 
 export interface AsciiArt {
@@ -35,7 +34,7 @@ export class TapciifyApi {
   baseUrl: string;
 
   constructor() {
-    this.baseUrl = `https://localhost:${PORT}/api/v1`;
+    this.baseUrl = `http://localhost:${PORT}/api/v1`;
   }
 
   async convertRaw(
@@ -46,20 +45,21 @@ export class TapciifyApi {
     fontRatio = 0.36,
     reverse = false
   ): Promise<RawConvertResult> {
-    const client = await getClient();
-
     const formData = new FormData();
     formData.append("blob", file, "img");
 
-    return await client.request({
-      url: `${
+    const req = await fetch(
+      `${
         this.baseUrl
       }/convert/raw?width=${width}&height=${height}&fontRatio=${fontRatio}&asciiString=${encodeURIComponent(
         asciiString
       )}&reverse=${reverse}`,
-      method: "POST",
-      headers: { "Content-Type": "multipart/form-data" },
-      body: Body.form(formData),
-    });
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    return await req.json();
   }
 }
