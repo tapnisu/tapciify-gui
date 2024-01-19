@@ -1,17 +1,17 @@
 [package]
 name = "tapciify-gui"
 version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
+description = "Convert your images to ASCII art"
+authors = ["Aleksei Rybin <0xalekseirybin@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/tapciify/tapciify-gui"
 edition = "2021"
 
 [build-dependencies]
 tauri-build = { version = "1.5", features = [] }
 
 [dependencies]
-tauri = { version = "1.5", features = ["shell-open"] }
+tauri = { version = "1.5", features = ["shell-open", "http-multipart"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1.0"
 tapciify = { version = "2", features = ["parallelism"] }

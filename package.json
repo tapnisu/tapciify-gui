@@ -1,7 +1,7 @@
 {
   "name": "tapciify-gui",
   "version": "0.0.0",
-  "description": "",
+  "description": "Convert your images to ASCII art",
   "type": "module",
   "scripts": {
     "start": "vite",
