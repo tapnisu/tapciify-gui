@@ -1,3 +1,5 @@
+import { Body, getClient } from "@tauri-apps/api/http";
+
 export interface AsciiArt {
   asciiArt: string;
   width: number;
@@ -29,34 +31,8 @@ export interface RawConvertResult {
 export class TapciifyApi {
   baseUrl: string;
 
-  constructor(baseUrl = "https://tapciify-api.shuttleapp.rs/api/v1") {
+  constructor(baseUrl = "https://localhost:3001/api/v1") {
     this.baseUrl = baseUrl;
-  }
-
-  async convert(
-    file: File,
-    width = 0,
-    height = 0,
-    asciiString = " .,:;+*?%S#@",
-    fontRatio = 0.36,
-    reverse = false,
-  ): Promise<ConvertResult> {
-    const formData = new FormData();
-    formData.append("blob", file, "img");
-
-    const req = await fetch(
-      `${
-        this.baseUrl
-      }/convert?width=${width}&height=${height}&fontRatio=${fontRatio}&asciiString=${encodeURIComponent(
-        asciiString,
-      )}&reverse=${reverse}`,
-      {
-        method: "POST",
-        body: formData,
-      },
-    );
-
-    return await req.json();
   }
 
   async convertRaw(
@@ -65,23 +41,22 @@ export class TapciifyApi {
     height = 0,
     asciiString = " .,:;+*?%S#@",
     fontRatio = 0.36,
-    reverse = false,
+    reverse = false
   ): Promise<RawConvertResult> {
+    const client = await getClient();
+
     const formData = new FormData();
     formData.append("blob", file, "img");
 
-    const req = await fetch(
-      `${
+    return await client.request({
+      url: `${
         this.baseUrl
       }/convert/raw?width=${width}&height=${height}&fontRatio=${fontRatio}&asciiString=${encodeURIComponent(
-        asciiString,
+        asciiString
       )}&reverse=${reverse}`,
-      {
-        method: "POST",
-        body: formData,
-      },
-    );
-
-    return await req.json();
+      method: "POST",
+      headers: { "Content-Type": "multipart/form-data" },
+      body: Body.form(formData),
+    });
   }
 }
