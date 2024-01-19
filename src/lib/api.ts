@@ -1,4 +1,5 @@
 import { Body, getClient } from "@tauri-apps/api/http";
+import { invoke } from "@tauri-apps/api/tauri";
 
 export interface AsciiArt {
   asciiArt: string;
@@ -28,11 +29,13 @@ export interface RawConvertResult {
   data: RawAsciiArt[];
 }
 
+const PORT = await invoke<number>("get_port");
+
 export class TapciifyApi {
   baseUrl: string;
 
-  constructor(baseUrl = "https://localhost:3001/api/v1") {
-    this.baseUrl = baseUrl;
+  constructor() {
+    this.baseUrl = `https://localhost:${PORT}/api/v1`;
   }
 
   async convertRaw(
