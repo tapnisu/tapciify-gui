@@ -14,7 +14,6 @@
   "dependencies": {
     "@picocss/pico": "^1.5.11",
     "@tauri-apps/api": "^1.5.3",
-    "solid-icons": "^1.1.0",
     "solid-js": "^1.8.11"
   },
   "devDependencies": {
