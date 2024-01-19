@@ -5,25 +5,31 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@picocss/pico':
+    specifier: ^1.5.11
+    version: 1.5.11
   '@tauri-apps/api':
-    specifier: ^1.5.2
+    specifier: ^1.5.3
     version: 1.5.3
+  solid-icons:
+    specifier: ^1.1.0
+    version: 1.1.0(solid-js@1.8.11)
   solid-js:
-    specifier: ^1.7.8
+    specifier: ^1.8.11
     version: 1.8.11
 
 devDependencies:
   '@tauri-apps/cli':
-    specifier: ^1.5.8
+    specifier: ^1.5.9
     version: 1.5.9
   typescript:
-    specifier: ^5.0.2
+    specifier: ^5.3.3
     version: 5.3.3
   vite:
-    specifier: ^5.0.0
+    specifier: ^5.0.11
     version: 5.0.11
   vite-plugin-solid:
-    specifier: ^2.8.0
+    specifier: ^2.8.2
     version: 2.8.2(solid-js@1.8.11)(vite@5.0.11)
 
 packages:
@@ -593,6 +599,10 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
+  /@picocss/pico@1.5.11:
+    resolution: {integrity: sha512-cDaFiSyNPtuSTwSQt/05xsw8+g2ek4/S58tgh9Nc7miJCCdUrY9PAyl4OPWRJtYgJDdEvkUA9GuGj0J4nDP4Cw==}
+    dev: false
+
   /@rollup/rollup-android-arm-eabi@4.9.5:
     resolution: {integrity: sha512-idWaG8xeSRCfRq9KpRysDHJ/rEHBEXcHuJ82XY0yYFIWnLMjZv9vF/7DOq8djQ2n3Lk6+3qfSH8AqlmHlmi1MA==}
     cpu: [arm]
@@ -1096,6 +1106,14 @@ packages:
   /seroval@1.0.4:
     resolution: {integrity: sha512-qQs/N+KfJu83rmszFQaTxcoJoPn6KNUruX4KmnmyD0oZkUoiNvJ1rpdYKDf4YHM05k+HOgCxa3yvf15QbVijGg==}
     engines: {node: '>=10'}
+
+  /solid-icons@1.1.0(solid-js@1.8.11):
+    resolution: {integrity: sha512-IesTfr/F1ElVwH2E1110s2RPXH4pujKfSs+koT8rwuTAdleO5s26lNSpqJV7D1+QHooJj18mcOiz2PIKs0ic+A==}
+    peerDependencies:
+      solid-js: '*'
+    dependencies:
+      solid-js: 1.8.11
+    dev: false
 
   /solid-js@1.8.11:
     resolution: {integrity: sha512-WdwmER+TwBJiN4rVQTVBxocg+9pKlOs41KzPYntrC86xO5sek8TzBYozPEZPL1IRWDouf2lMrvSbIs3CanlPvQ==}
