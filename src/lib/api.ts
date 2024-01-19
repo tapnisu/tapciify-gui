@@ -28,15 +28,7 @@ export interface RawConvertResult {
   data: RawAsciiArt[];
 }
 
-const PORT = await invoke<number>("get_port");
-
 export class TapciifyApi {
-  baseUrl: string;
-
-  constructor() {
-    this.baseUrl = `http://localhost:${PORT}/api/v1`;
-  }
-
   async convertRaw(
     file: File,
     width = 0,
@@ -48,10 +40,11 @@ export class TapciifyApi {
     const formData = new FormData();
     formData.append("blob", file, "img");
 
+    const port = await invoke<number>("get_port");
+    const baseUrl = `http://localhost:${port}/api/v1`;
+
     const req = await fetch(
-      `${
-        this.baseUrl
-      }/convert/raw?width=${width}&height=${height}&fontRatio=${fontRatio}&asciiString=${encodeURIComponent(
+      `${baseUrl}/convert/raw?width=${width}&height=${height}&fontRatio=${fontRatio}&asciiString=${encodeURIComponent(
         asciiString
       )}&reverse=${reverse}`,
       {
