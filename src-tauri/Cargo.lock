@@ -3248,12 +3248,11 @@ dependencies = [
 
 [[package]]
 name = "tapciify"
-version = "2.2.0"
+version = "2.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5abe418df6a431b64a4c5a08af7e469b99fd5676e8774313bbcbc05b7edcbfba"
+checksum = "49d6fbdb305a36736de4d2f1abda42cc50a4057e1ec864286df3b10c481caada"
 dependencies = [
  "colored",
- "glob",
  "image",
  "rayon",
 ]
