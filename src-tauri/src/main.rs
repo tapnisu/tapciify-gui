@@ -8,7 +8,7 @@ use app::app;
 
 struct Port(u16);
 
-/// A command to get the usused port, instead of 3000.
+/// A command to get the unused port, instead of 3000.
 #[tauri::command]
 fn get_port(port: tauri::State<Port>) -> Result<String, String> {
     Ok(format!("{}", port.0))
