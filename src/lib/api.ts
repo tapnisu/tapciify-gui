@@ -1,15 +1,5 @@
 import { invoke } from "@tauri-apps/api/tauri";
 
-export interface AsciiArt {
-  asciiArt: string;
-  width: number;
-  heigth: number;
-}
-
-export interface ConvertResult {
-  data: AsciiArt[];
-}
-
 export interface AsciiCharacter {
   character: string;
   r: number;
@@ -21,7 +11,7 @@ export interface AsciiCharacter {
 export interface RawAsciiArt {
   characters: AsciiCharacter[];
   width: number;
-  heigth: number;
+  height: number;
 }
 
 export interface RawConvertResult {
