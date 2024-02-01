@@ -3,7 +3,6 @@ name = "tapciify-gui"
 version = "0.0.0"
 description = "Convert your images to ASCII art"
 authors = ["Aleksei Rybin <0xalekseirybin@gmail.com>"]
-license = "MIT"
 repository = "https://github.com/tapciify/tapciify-gui"
 edition = "2021"
 
