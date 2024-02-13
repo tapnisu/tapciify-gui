@@ -18,6 +18,10 @@ export interface RawConvertResult {
   data: RawAsciiArt[];
 }
 
+export function getPort() {
+  return invoke<number>("get_port");
+}
+
 export class TapciifyApi {
   async convertRaw(
     file: File,
@@ -30,7 +34,7 @@ export class TapciifyApi {
     const formData = new FormData();
     formData.append("blob", file, "img");
 
-    const port = await invoke<number>("get_port");
+    const port = await getPort();
     const baseUrl = `http://localhost:${port}/api/v1`;
 
     const req = await fetch(
