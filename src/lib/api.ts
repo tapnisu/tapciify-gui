@@ -25,8 +25,8 @@ export function getPort() {
 export class TapciifyApi {
   async convertRaw(
     file: File,
-    width = undefined,
-    height = undefined,
+    width: number,
+    height: number,
     asciiString = " .,:;+*?%S#@",
     fontRatio = 0.36,
     reverse = false
