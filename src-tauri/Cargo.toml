@@ -1,6 +1,6 @@
 [package]
 name = "tapciify-gui"
-version = "0.1.0"
+version = "0.1.1"
 description = "Convert your images to ASCII art"
 authors = ["Aleksei Rybin <0xalekseirybin@gmail.com>"]
 repository = "https://github.com/tapciify/tapciify-gui"
