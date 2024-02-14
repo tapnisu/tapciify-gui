@@ -25,8 +25,8 @@ export function getPort() {
 export class TapciifyApi {
   async convertRaw(
     file: File,
-    width = 0,
-    height = 0,
+    width = undefined,
+    height = undefined,
     asciiString = " .,:;+*?%S#@",
     fontRatio = 0.36,
     reverse = false
@@ -37,15 +37,17 @@ export class TapciifyApi {
     const port = await getPort();
     const baseUrl = `http://localhost:${port}/api/v1`;
 
-    const req = await fetch(
-      `${baseUrl}/convert/raw?width=${width}&height=${height}&fontRatio=${fontRatio}&asciiString=${encodeURIComponent(
-        asciiString
-      )}&reverse=${reverse}`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+    let path = `${baseUrl}/convert/raw?asciiString=${encodeURIComponent(
+      asciiString
+    )}&fontRatio=${fontRatio}&reverse=${reverse}`;
+
+    if (width) path += `&width=${width}`;
+    if (height) path += `&height=${height}`;
+
+    const req = await fetch(path, {
+      method: "POST",
+      body: formData,
+    });
 
     return await req.json();
   }

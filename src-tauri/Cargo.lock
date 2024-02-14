@@ -3263,9 +3263,9 @@ dependencies = [
 
 [[package]]
 name = "tapciify"
-version = "2.2.1"
+version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "49d6fbdb305a36736de4d2f1abda42cc50a4057e1ec864286df3b10c481caada"
+checksum = "0667e6ae213e86c99f1b6fbeb07e8b5ff032cf1b4ceb0a228e9e9156aec57c00"
 dependencies = [
  "colored",
  "image",
@@ -3274,7 +3274,7 @@ dependencies = [
 
 [[package]]
 name = "tapciify-gui"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "axum",
  "image",
